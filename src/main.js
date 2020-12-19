@@ -56,10 +56,10 @@ function display() {
 
 btn.addEventListener("click", function() {
     let mealValue = inputCommand.value;
-    let day = inputDay.value;
+    let numberDay = inputDay.value;
     let meal = getMeal(mealValue);
-    triangleMiam(meal,day);
-})
+    triangleMiam(meal,numberDay);
+});
 
 function getMeal(value) {
     let words = value.split();
@@ -73,15 +73,44 @@ function getMeal(value) {
 }
 
 function triangleMiam(meal,day) {
-    console.log(meal);
     verifyCommand(meal);
-    if (meal[0] === sushi && meal[1] === sushi) {
-        console.log(sushi);
-    } else if (meal[0] === pizza && meal[1] === pizza) {
-        console.log(pizza);
-    } else if (meal[0] === choux && meal[1] === choux) {
-        console.log(choux);
-    } else {}
+    let objectiveDay = day;
+    let computeMealfromDay = meal.length / 2;
+    console.log(computeMealfromDay)
+    console.log("" + meal);
+    let newMeal = getNewMeal(meal);
+    while (newMeal.length > 1) {
+        newMeal = getNewMeal(newMeal);
+    }
+    console.log('endgame');
+}
+
+function getNewMeal(meal) {
+    let newMeal = [];
+    for (let i = 0; i < meal.length; i++) {
+        let index = i + 1;
+        if (meal[i] === sushi && meal[index] === sushi) {
+            newMeal.push(sushi);
+            // 🍣 + 🍣 = 🍣
+        } else if (meal[i] === pizza && meal[index] === pizza) {
+            newMeal.push(pizza);
+            // 🍕 + 🍕 = 🍕
+        } else if (meal[i] === choux && meal[index] === choux) {
+            newMeal.push(choux);
+            // 🥦 + 🥦 = 🥦
+        } else if (meal[i] === choux && meal[index] === pizza || meal[i] === pizza && meal[index] === choux) {
+            newMeal.push(sushi);
+            // 🥦 + 🍕 = 🍣
+        } else if (meal[i] === choux && meal[index] === sushi || meal[i] === sushi && meal[index] === choux) {
+            newMeal.push(pizza);
+            // 🥦 + 🍣 = 🍕
+        } else if (meal [i] === sushi && meal[index] === pizza || meal[i] === pizza && meal[index] === sushi) {
+            newMeal.push(choux);
+            // 🍣 + 🍕 = 🥦
+        }
+    }
+    console.log(" " + newMeal);
+    return newMeal;
 }
 
 function verifyCommand(meal) {
