@@ -3,6 +3,7 @@ let symbol = "🍣🍣🍕🍣🍕🥦🍕🥦🍣🍣🍕🍕🥦🍣";
 let sushi = "🍣";
 let pizza = "🍕";
 let choux = "🥦";
+let allMeal = [];
 
 let header = document.createElement("header");
 let title = document.createElement("h1");
@@ -74,15 +75,27 @@ function getMeal(value) {
 
 function triangleMiam(meal,day) {
     verifyCommand(meal);
-    let objectiveDay = day;
-    let computeMealfromDay = meal.length / 2;
-    console.log(computeMealfromDay)
+    addMealToTab(allMeal,meal);
+
     console.log("" + meal);
+
     let newMeal = getNewMeal(meal);
+    addMealToTab(allMeal,newMeal);
+
     while (newMeal.length > 1) {
         newMeal = getNewMeal(newMeal);
+        addMealToTab(allMeal,newMeal);
     }
-    console.log('endgame');
+
+    let results = [allMeal[(day * 2) - 2],allMeal[(day * 2) - 1]];
+    displayResults(results,day);
+}
+
+function addMealToTab(tab,meal) {
+    for (let i = 0; i < meal.length; i++) {
+        tab.push(meal[i])
+    }
+    return tab
 }
 
 function getNewMeal(meal) {
@@ -120,6 +133,12 @@ function verifyCommand(meal) {
         errorMessage.style.color = "red";
         sectionForm.appendChild(errorMessage);
     }
+}
+
+function displayResults(results, day) {
+    let midi = results[0];
+    let soir = results[1]
+    console.log("Midi : " + midi + " Soir : " + soir);
 }
 
 init();
