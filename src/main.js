@@ -138,6 +138,7 @@ function verifyCommand(meal) {
 function displayResults(results, day) {
     let midi = results[0];
     let soir = results[1]
+    console.log("Repas à J+" + day);
     console.log("Midi : " + midi + " Soir : " + soir);
 }
 
