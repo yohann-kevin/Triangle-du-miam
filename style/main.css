@@ -22,23 +22,21 @@
     font-size: 1.5rem;
 }
 
-/* #sectionForm {
+#section {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-} */
-
-#sectionForm {
-    width: 30%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-#sectionForm input {
+#section label {
+    width: 100%;
+    text-align: center;
+}
+
+#section input {
     margin: 15px;
-    width: 50%;
+    width: 30%;
     transition: 0.5s;
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
@@ -46,10 +44,37 @@
     -o-transition: 0.5s;
 }
 
-#sectionForm input:focus {
+#section input:focus {
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
     -ms-transform: scale(1.2);
     -o-transform: scale(1.2);
+}
+
+#btnContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#section button {
+    width: 20;
+}
+
+#titleResults {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.msg {
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#triangleContainer {
+    text-align: center;
 }
