@@ -120,17 +120,15 @@ function getNewMeal(meal) {
 
 // calcul le troisième repas en fonction des deux repas donner
 function computeMeal(meal1,meal2) {
-    let elmnt1 = meal1;
-    let elmnt2 = meal2;
-    let elmnt3;
-    if (elmnt1 === elmnt2) {
-        elmnt3 = elmnt1;
-    } else if (elmnt1 != elmnt2) {
-        if (elmnt1 === sushi && elmnt2 === pizza || elmnt1 === pizza && elmnt2 === sushi) elmnt3 = choux;
-        if (elmnt1 === sushi && elmnt2 === choux || elmnt1 === choux && elmnt2 === sushi) elmnt3 = pizza;
-        if (elmnt1 === choux && elmnt2 === pizza || elmnt1 ===pizza && elmnt2 === choux) elmnt3 = sushi;
+    let meal3;
+    if (meal1 === meal2) {
+        meal3 = meal1;
+    } else if (meal1 != meal2) {
+        if (meal1 === sushi && meal2 === pizza || meal1 === pizza && meal2 === sushi) meal3 = choux;
+        if (meal1 === sushi && meal2 === choux || meal1 === choux && meal2 === sushi) meal3 = pizza;
+        if (meal1 === choux && meal2 === pizza || meal1 ===pizza && meal2 === choux) meal3 = sushi;
     }
-    return elmnt3;
+    return meal3;
 }
 
 // fonction permettant de vérifier les commandes entrer par l'utilisateur
