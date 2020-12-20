@@ -19,6 +19,7 @@ let inputDay = document.createElement("input");
 
 let btn = document.createElement("button");
 
+// initialise le programme et l'interface utilisateur
 function init() {
     header.id = "header";
     title.textContent = "Le triangle du miam !!!";
@@ -43,6 +44,7 @@ function init() {
     display();
 }
 
+// gère l'affichage de l'interface utilisateurs
 function display() {
     body.appendChild(header);
     header.appendChild(title);
@@ -55,6 +57,8 @@ function display() {
     sectionForm.appendChild(btn);
 }
 
+// détecteur d'évenement au click sur le bouton afficher les repas
+// lance l'algorythme
 btn.addEventListener("click", function() {
     let mealValue = inputCommand.value;
     let numberDay = inputDay.value;
@@ -62,6 +66,7 @@ btn.addEventListener("click", function() {
     triangleMiam(meal,numberDay);
 });
 
+// récupère la commande entrer par l'utilisateur et la stock dans un tableau
 function getMeal(value) {
     let words = value.split();
     let tabMeal = [];
@@ -73,6 +78,9 @@ function getMeal(value) {
     return tabMeal;
 }
 
+// fonction principal du programme c'est elle qui calcul le résultat en fonction
+// du tableau contenant tout les repas calculé et du nombre de jour entrer par 
+// l'utilisateur
 function triangleMiam(meal,day) {
     verifyCommand(meal);
     addMealToTab(allMeal,meal);
@@ -91,6 +99,7 @@ function triangleMiam(meal,day) {
     displayResults(results,day);
 }
 
+// ajoute tout les nouveau repas calculer dans un tableau pour tout les repas
 function addMealToTab(tab,meal) {
     for (let i = 0; i < meal.length; i++) {
         tab.push(meal[i])
@@ -98,34 +107,33 @@ function addMealToTab(tab,meal) {
     return tab
 }
 
+// fonction permettant de récupérer les nouveau repas dans un tableau
 function getNewMeal(meal) {
     let newMeal = [];
     for (let i = 0; i < meal.length; i++) {
         let index = i + 1;
-        if (meal[i] === sushi && meal[index] === sushi) {
-            newMeal.push(sushi);
-            // 🍣 + 🍣 = 🍣
-        } else if (meal[i] === pizza && meal[index] === pizza) {
-            newMeal.push(pizza);
-            // 🍕 + 🍕 = 🍕
-        } else if (meal[i] === choux && meal[index] === choux) {
-            newMeal.push(choux);
-            // 🥦 + 🥦 = 🥦
-        } else if (meal[i] === choux && meal[index] === pizza || meal[i] === pizza && meal[index] === choux) {
-            newMeal.push(sushi);
-            // 🥦 + 🍕 = 🍣
-        } else if (meal[i] === choux && meal[index] === sushi || meal[i] === sushi && meal[index] === choux) {
-            newMeal.push(pizza);
-            // 🥦 + 🍣 = 🍕
-        } else if (meal [i] === sushi && meal[index] === pizza || meal[i] === pizza && meal[index] === sushi) {
-            newMeal.push(choux);
-            // 🍣 + 🍕 = 🥦
-        }
+        if(meal[index] != undefined) newMeal.push(computeMeal(meal[i],meal[index]));
     }
     console.log(" " + newMeal);
     return newMeal;
 }
 
+// calcul le troisième repas en fonction des deux repas donner
+function computeMeal(meal1,meal2) {
+    let elmnt1 = meal1;
+    let elmnt2 = meal2;
+    let elmnt3;
+    if (elmnt1 === elmnt2) {
+        elmnt3 = elmnt1;
+    } else if (elmnt1 != elmnt2) {
+        if (elmnt1 === sushi && elmnt2 === pizza || elmnt1 === pizza && elmnt2 === sushi) elmnt3 = choux;
+        if (elmnt1 === sushi && elmnt2 === choux || elmnt1 === choux && elmnt2 === sushi) elmnt3 = pizza;
+        if (elmnt1 === choux && elmnt2 === pizza || elmnt1 ===pizza && elmnt2 === choux) elmnt3 = sushi;
+    }
+    return elmnt3;
+}
+
+// fonction permettant de vérifier les commandes entrer par l'utilisateur
 function verifyCommand(meal) {
     if (meal.length === 0) {
         let errorMessage = document.createElement("h2");
@@ -135,6 +143,7 @@ function verifyCommand(meal) {
     }
 }
 
+// fonction permettant d'afficher le résultat
 function displayResults(results, day) {
     let midi = results[0];
     let soir = results[1]
