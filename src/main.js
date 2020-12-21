@@ -29,7 +29,7 @@ function init() {
     subtitle.textContent = symbol;
 
     section.id = "section";
-    labelCommand.textContent = "Entrées la commande : ";
+    labelCommand.textContent = "Entrez la commande : ";
     labelCommand.id = "inputTitle";
     inputCommand.type = "text";
     inputCommand.name = "symbol";
