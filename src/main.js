@@ -22,6 +22,9 @@ let btn = document.createElement("button");
 
 let triangleContainer = document.createElement("div");
 
+let footer = document.createElement("footer");
+let paraFooter = document.createElement("p");
+
 // initialise le programme et l'interface utilisateur
 function init() {
     header.id = "header";
@@ -45,6 +48,9 @@ function init() {
     btn.type = "submit";
     btn.textContent = "Afficher les repas";
     btn.id = "btnSubmit";
+
+    footer.id = "footer";
+    paraFooter.textContent = "Powered by Perriguey Yohann";
     display();
 }
 
@@ -60,6 +66,8 @@ function display() {
     section.appendChild(inputDay); 
     section.appendChild(btnContainer);
     btnContainer.appendChild(btn);
+    body.appendChild(footer);
+    footer.appendChild(paraFooter);
 }
 
 // détecteur d'évenement au click sur le bouton afficher les repas
