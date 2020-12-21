@@ -3,9 +3,14 @@
     padding: 0;
 }
 
+body {
+    background-color: #222931;
+    color: #ffffff;
+}
+
 #header {
     width: 100%;
-    background-color: grey;
+    background-color: #2ea043;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -60,7 +65,30 @@
 }
 
 #section button {
-    width: 20;
+    width: 15%;
+    height: 25px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: #2ea043;
+    color: #ffffff;
+    border: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+}
+
+#section button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
 }
 
 #titleResults {
