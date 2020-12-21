@@ -128,13 +128,3 @@ body {
     margin-top: 10px;
     font-size: 1.2rem;
 }
-
-#footer {
-    width: 100%;
-    background-color: #2ea043;
-    height: 25px;
-    margin-top: 70vh;
-    text-align: center;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-}
