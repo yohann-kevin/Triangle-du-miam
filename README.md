@@ -61,3 +61,7 @@ Une fois toutes ces étapes terminer il ne vous reste plus qu'à démarrer le pr
 npm run start
 
 ```
+
+### Liens vers le projet en ligne :
+
+[Tringale du miam](https://silly-bardeen-ff6ea9.netlify.app/)
