@@ -2,6 +2,10 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/85c2e907447787d4b748/maintainability)](https://codeclimate.com/github/yohann-kevin/Triangle-du-miam/maintainability)
 
+<div align="center">
+    <img src="images/TriangleMiam.png">
+</div>
+
 ## Documentation du projet :
 
 ### Nom du projet :
