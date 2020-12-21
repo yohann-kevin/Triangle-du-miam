@@ -64,4 +64,4 @@ npm run start
 
 ### Liens vers le projet en ligne :
 
-[Tringale du miam](https://silly-bardeen-ff6ea9.netlify.app/)
+[Triangle du miam](https://silly-bardeen-ff6ea9.netlify.app/)
