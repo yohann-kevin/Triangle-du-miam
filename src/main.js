@@ -48,7 +48,7 @@ function init() {
     display();
 }
 
-// gère l'affichage de l'interface utilisateurs
+// gère l'affichage de l'interface utilisateur
 function display() {
     body.appendChild(header);
     header.appendChild(title);
@@ -62,7 +62,7 @@ function display() {
     btnContainer.appendChild(btn);
 }
 
-// détecteur d'évenement au click sur le bouton afficher les repas
+// détecteur d'événement au click sur le bouton affiché les repas
 // lance l'algorithme
 btn.addEventListener("click", function() {
     let mealValue = inputCommand.value;
@@ -83,9 +83,9 @@ function getMeal(value) {
     return tabMeal;
 }
 
-// fonction principal du programme c'est elle qui calcul le résultat en fonction
-// du tableau contenant tout les repas calculé et du nombre de jour entrer par 
-// l'utilisateur
+//  Fonction principale du programme, c'est elle qui calcule le résultat
+//  en fonction du tableau contenant tous les repas calculé
+//  et du nombre de jours entrer par l'utilisateur
 function triangleMiam(meal,day) {
     let commandVerif = verifyCommand(meal);
     if (commandVerif) {
@@ -116,7 +116,7 @@ function verifyCommand(meal) {
     return check;
 }
 
-// ajoute tout les nouveau repas calculer dans un tableau pour tout les repas
+// ajoute tous les nouveaux repas calculer dans un tableau pour tous les repas
 function addMealToTriangle(tab,meal) {
     let paraMeal = document.createElement("p");
     for (let i = 0; i < meal.length; i++) {
@@ -127,7 +127,7 @@ function addMealToTriangle(tab,meal) {
     return tab
 }
 
-// fonction permettant de récupérer les nouveau repas dans un tableau
+// fonction permettant de récupérer les nouveaux repas dans un tableau
 function getNewMeal(meal) {
     let newMeal = [];
     for (let i = 0; i < meal.length; i++) {
