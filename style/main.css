@@ -128,3 +128,13 @@ body {
     margin-top: 10px;
     font-size: 1.2rem;
 }
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+    #section input {
+        width: 75%;
+    }
+
+    #section button {
+        width: 50%;
+    }
+}
