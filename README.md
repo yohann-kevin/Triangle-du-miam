@@ -16,7 +16,7 @@ Triangle du miam
 
 PERRIGUEY Yohann
 
-### languages utilisés :
+### langages utilisés :
 
 * HTML
 * CSS
@@ -39,7 +39,7 @@ git clone
 
 ```
 
-Ensuite vous devrez vous rendre à la racine du projet : 
+Ensuite, vous devrez vous rendre à la racine du projet : 
 
 
 ```
