@@ -21,6 +21,7 @@ let btnContainer = document.createElement("div");
 let btn = document.createElement("button");
 
 let triangleContainer = document.createElement("div");
+let isResults = false;
 
 // initialise le programme et l'interface utilisateur
 function init() {
@@ -65,6 +66,7 @@ function display() {
 // détecteur d'événement au click sur le bouton affiché les repas
 // lance l'algorithme
 btn.addEventListener("click", function() {
+    if (isResults) removeLastResults();
     let mealValue = inputCommand.value;
     let numberDay = inputDay.value;
     let meal = getMeal(mealValue);
@@ -165,6 +167,18 @@ function displayResults(results, day) {
     section.appendChild(msgMidi);
     section.appendChild(msgSoir);
     section.appendChild(triangleContainer);
+    isResults = true;
+}
+
+// Supprime l'ancien résultat
+function removeLastResults() {
+    let index = triangleContainer.children.length;
+    section.children[5].remove();
+    section.children[6].remove();
+    section.children[5].remove();
+    for (let i = 0;i < index; i++) {
+        triangleContainer.children[0].remove();
+    }
 }
 
 init();
