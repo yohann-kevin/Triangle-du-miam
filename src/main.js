@@ -98,8 +98,11 @@ function triangleMiam(meal,day) {
             newMeal = getNewMeal(newMeal);
             addMealToTriangle(allMeal,newMeal);
         }
-        let results = [allMeal[(day * 2) - 2],allMeal[(day * 2) - 1]];
-        displayResults(results,day);
+        let dayVerif = verifyDay(day);
+        if (dayVerif) {
+            let results = [allMeal[(day * 2) - 2],allMeal[(day * 2) - 1]];
+            displayResults(results,day);
+        }
     }
 }
 
@@ -127,6 +130,20 @@ function addMealToTriangle(tab,meal) {
     }
     triangleContainer.appendChild(paraMeal);
     return tab
+}
+
+function verifyDay(day) {
+    let check;
+    if (day > allMeal.length / 2) {
+        let errorMessage = document.createElement('h2');
+        errorMessage.textContent = "Vous avez entrer un trop grand nombre de jour ! réessayer avec un plus petit nombre";
+        errorMessage.style.color = "red";
+        section.appendChild(errorMessage);
+        check = false;
+        return check;
+    }
+    check = true;
+    return check
 }
 
 // fonction permettant de récupérer les nouveaux repas dans un tableau
