@@ -129,6 +129,37 @@ body {
     font-size: 1.2rem;
 }
 
+#titleResults, .msg, #triangleContainer {
+    -webkit-animation-name: animate;
+    -webkit-animation-duration: 1s;
+    animation-name: animate;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animate {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animate {
+    from {
+        bottom: -100px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
 @media screen and (min-width: 200px) and (max-width: 640px) {
     #section input {
         width: 75%;
