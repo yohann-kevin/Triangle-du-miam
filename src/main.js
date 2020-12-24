@@ -89,7 +89,7 @@ function getMeal(value) {
 //  en fonction du tableau contenant tous les repas calculé
 //  et du nombre de jours entrer par l'utilisateur
 function triangleMiam(meal,day) {
-    let commandVerif = verifyCommand(meal);
+    let commandVerif = verifyValue(meal);
     if (commandVerif) {
         addMealToTriangle(allMeal,meal);
         let newMeal = getNewMeal(meal);
@@ -98,7 +98,7 @@ function triangleMiam(meal,day) {
             newMeal = getNewMeal(newMeal);
             addMealToTriangle(allMeal,newMeal);
         }
-        let dayVerif = verifyDay(day);
+        let dayVerif = verifyValue(day);
         if (dayVerif) {
             let results = [allMeal[(day * 2) - 2],allMeal[(day * 2) - 1]];
             displayResults(results,day);
@@ -107,18 +107,35 @@ function triangleMiam(meal,day) {
 }
 
 // fonction permettant de vérifier les commandes entrer par l'utilisateur
-function verifyCommand(meal) {
-    let check;
-    if (meal.length === 0) {
-        let errorMessage = document.createElement("h2");
-        errorMessage.textContent = "Le programme n'a pas reconnu la commande, veuillez entrer une commande valide !";
-        errorMessage.style.color = "red";
-        section.appendChild(errorMessage);
-        check = false;
+function verifyValue(value) {
+    let msg;
+    let check = true;
+    let type = typeof value;
+    if (type === 'object') {
+        if (value.length === 0) {
+            msg = "Le programme n'a pas reconnu la commande, veuillez entrer une commande valide !";
+            errorMessage(msg);
+            check = false;
+            return check;
+        }
         return check;
+    } else if (type === 'string') {
+        if (value > allMeal.length / 2) {
+            msg = "Vous avez entrer un trop grand nombre de jour ! réessayer avec un plus petit nombre !";
+            errorMessage(msg);
+            check = false;
+            return check;
+        }
+        return check
     }
-    check = true;
-    return check;
+}
+
+// affiche un message d'erreur
+function errorMessage(msg) {
+    let errorMessage = document.createElement('h2');
+    errorMessage.textContent = msg;
+    errorMessage.style.color = "red";
+    section.appendChild(errorMessage);
 }
 
 // ajoute tous les nouveaux repas calculer dans un tableau pour tous les repas
@@ -130,20 +147,6 @@ function addMealToTriangle(tab,meal) {
     }
     triangleContainer.appendChild(paraMeal);
     return tab
-}
-
-function verifyDay(day) {
-    let check;
-    if (day > allMeal.length / 2) {
-        let errorMessage = document.createElement('h2');
-        errorMessage.textContent = "Vous avez entrer un trop grand nombre de jour ! réessayer avec un plus petit nombre";
-        errorMessage.style.color = "red";
-        section.appendChild(errorMessage);
-        check = false;
-        return check;
-    }
-    check = true;
-    return check
 }
 
 // fonction permettant de récupérer les nouveaux repas dans un tableau
