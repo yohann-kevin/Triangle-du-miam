@@ -110,8 +110,7 @@ function triangleMiam(meal,day) {
 function verifyValue(value) {
     let msg;
     let check = true;
-    let type = typeof value;
-    if (type === 'object') {
+    if (typeof value === 'object') {
         if (value.length === 0) {
             msg = "Le programme n'a pas reconnu la commande, veuillez entrer une commande valide !";
             errorMessage(msg);
@@ -119,7 +118,7 @@ function verifyValue(value) {
             return check;
         }
         return check;
-    } else if (type === 'string') {
+    } else if (typeof value === 'string') {
         if (value > allMeal.length / 2) {
             msg = "Vous avez entrer un trop grand nombre de jour ! réessayer avec un plus petit nombre !";
             errorMessage(msg);
